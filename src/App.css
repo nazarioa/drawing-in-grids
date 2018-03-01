@@ -10,6 +10,7 @@
 }
 
 .App-grid {
+  padding: 50px;
   margin: 10px auto;
   display: grid;
   justify-content: center;

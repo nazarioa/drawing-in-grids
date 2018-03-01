@@ -21,11 +21,12 @@ class App extends Component {
     this.setState({
       cellWidthHeight: 20,
       availableSpace: {
-        width: window.innerWidth || document.body.clientWidth,
-        height: (window.innerHeight || document.body.clientHeight) - 100
-        // 100  = 60 (.AppHeader height)
+        width: (window.innerWidth || document.body.clientWidth) - 100,
+        height: (window.innerHeight || document.body.clientHeight) - 200
+        // 200  = 60 (.AppHeader height)
         //      + 10*2 (.App-header padding)
-        //      + 10*2 (.App-grid padding);
+        //      + 10*2 (.App-grid margin);
+        //      + 50*2 (.App-grid padding);
       }
     });
   }
