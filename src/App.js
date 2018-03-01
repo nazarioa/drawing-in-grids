@@ -4,31 +4,59 @@ import Cell from './Cell/Cell';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cellWidthHeight: 20,
+      availableSpace: {
+        width: 400,
+        height: 400
+      }
+    };
+
+    this.updateGridSize = this.updateGridSize.bind(this);
+  }
+
+  updateGridSize() {
+    this.setState({
+      cellWidthHeight: 20,
+      availableSpace: {
+        width: window.innerWidth || document.body.clientWidth,
+        height: (window.innerHeight || document.body.clientHeight) - 100
+        // 100  = 60 (.AppHeader height)
+        //      + 10*2 (.App-header padding)
+        //      + 10*2 (.App-grid padding);
+      }
+    });
+  }
+
+
+  componentWillMount() {
+       this.updateGridSize();
+   }
+
+   componentDidMount() {
+       window.addEventListener("resize", this.updateGridSize);
+   }
+
+   componentWillUnmount() {
+       window.removeEventListener("resize", this.updateGridSize);
+   }
 
   render() {
-    const cellWidthHeight = 20;
-
-    const availableSpace = {
-      width: window.innerWidth || document.body.clientWidth,
-      height: (window.innerHeight || document.body.clientHeight) - 100
-      // 100  = 60 (.AppHeader height)
-      //      + 10*2 (.App-header padding)
-      //      + 10*2 (.App-grid padding);
-    }
-
-    const numberCellsVertically = Math.round(availableSpace.width / cellWidthHeight);
-    const numberCellsHorizontally = Math.round(availableSpace.height / cellWidthHeight);
+    const numberCellsVertically = Math.round(this.state.availableSpace.width / this.state.cellWidthHeight);
+    const numberCellsHorizontally = Math.round(this.state.availableSpace.height / this.state.cellWidthHeight);
 
     const gridTemplateStyle = {
-      gridTemplateRows: 'repeat(' + numberCellsHorizontally + ', ' + cellWidthHeight + 'px)',
-      gridTemplateColumns: 'repeat(' + numberCellsVertically + ', ' + cellWidthHeight + 'px)',
-      width: (numberCellsVertically * cellWidthHeight) + 'px',
-      height: (numberCellsHorizontally * cellWidthHeight) + 'px'
+      gridTemplateRows: 'repeat(' + numberCellsHorizontally + ', ' + this.state.cellWidthHeight + 'px)',
+      gridTemplateColumns: 'repeat(' + numberCellsVertically + ', ' + this.state.cellWidthHeight + 'px)',
+      width: (numberCellsVertically * this.state.cellWidthHeight) + 'px',
+      height: (numberCellsHorizontally * this.state.cellWidthHeight) + 'px'
     };
 
     const cellStyle = {
-      width: cellWidthHeight + 'px',
-      height: cellWidthHeight + 'px'
+      width: this.state.cellWidthHeight + 'px',
+      height: this.state.cellWidthHeight + 'px'
     };
 
     const cells = [];
