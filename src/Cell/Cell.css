@@ -1,7 +1,4 @@
 .Cell {
-  width: 25px;
-  height: 25px;
-
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -9,14 +6,15 @@
 }
 
 .Cell-pulp {
-  width: 5px;
-  height: 5px;
+  width: 1px;
+  height: 1px;
   border-radius: 50%;
   background-color: rgb(100,100,100);
   box-sizing: border-box;
+  transition: all 0.2s;
 }
 
-.Cell:hover .Cell-pulp {
+.Cell-pulp.active {
   width: 100%;
   height: 100%;
 }

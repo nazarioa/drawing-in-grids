@@ -1,11 +1,8 @@
-.App {
-}
-
 .App-header {
   background-color: #222;
-  height: 3em;
-  padding: 1em;
+  padding: 10px;
   color: white;
+  height: 60px;
 }
 
 .App-title {
@@ -13,11 +10,7 @@
 }
 
 .App-grid {
-  margin: 2em auto;
+  margin: 10px auto;
   display: grid;
-  grid-template-rows: repeat(8, 25px);
-  grid-template-columns: repeat(8, 25px);
-
-  width: 200px;
-  height: 200px;
+  justify-content: center;
 }
