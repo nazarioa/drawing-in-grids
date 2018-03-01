@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     const cellWidthHeight = 20;
 
-    let availableSpace = {
+    const availableSpace = {
       width: window.innerWidth || document.body.clientWidth,
       height: (window.innerHeight || document.body.clientHeight) - 100
       // 100  = 60 (.AppHeader height)
@@ -16,23 +16,23 @@ class App extends Component {
       //      + 10*2 (.App-grid padding);
     }
 
-    let gridWidth = Math.round(availableSpace.width / cellWidthHeight);
-    let gridHeight = Math.round(availableSpace.height / cellWidthHeight);
+    const numberCellsVertically = Math.round(availableSpace.width / cellWidthHeight);
+    const numberCellsHorizontally = Math.round(availableSpace.height / cellWidthHeight);
 
-    let gridTemplateStyle = {
-      gridTemplateRows: 'repeat(' + gridHeight + ', ' + cellWidthHeight + 'px)',
-      gridTemplateColumns: 'repeat(' + gridWidth + ', ' + cellWidthHeight + 'px)',
-      width: (gridWidth * cellWidthHeight) + 'px',
-      height: (gridHeight * cellWidthHeight) + 'px'
+    const gridTemplateStyle = {
+      gridTemplateRows: 'repeat(' + numberCellsHorizontally + ', ' + cellWidthHeight + 'px)',
+      gridTemplateColumns: 'repeat(' + numberCellsVertically + ', ' + cellWidthHeight + 'px)',
+      width: (numberCellsVertically * cellWidthHeight) + 'px',
+      height: (numberCellsHorizontally * cellWidthHeight) + 'px'
     };
 
-    let cellStyle = {
+    const cellStyle = {
       width: cellWidthHeight + 'px',
       height: cellWidthHeight + 'px'
     };
 
-    let cells = [];
-    for (let i = 0; i < (gridWidth * gridHeight); i++) {
+    const cells = [];
+    for (let i = 0; i < (numberCellsVertically * numberCellsHorizontally); i++) {
       cells.push(<Cell key={i} className="cell-{i}" style={cellStyle} />);
     }
 

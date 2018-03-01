@@ -18,7 +18,7 @@ class Cell extends Component {
   }
 
   handleOnMouseOut(e) {
-    let p = setTimeout(() => this.setState({active: false}), 6000);
+    setTimeout(() => this.setState({active: false}), 6000);
   }
 
   render() {
