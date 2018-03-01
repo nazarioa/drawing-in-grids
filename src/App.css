@@ -1,17 +1,78 @@
+.App {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 60px auto 60px;
+  grid-template-areas: 'header'
+  'body'
+  'footer';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
 .App-header {
   background-color: #222;
   padding: 10px;
   color: white;
   height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  grid-area: header;
+  justify-content: space-between;
 }
 
-.App-title {
+.header-title {
   font-size: 1.5em;
+}
+
+.header-github {
+  position: relative;
+}
+
+.header-github a {
+  font-size: 0.85em;
+  color: #818181;
+  text-decoration: none;
+}
+
+.header-github a:hover {
+  font-size: 0.85em;
+  color: #b1b1b1;
+}
+
+.header-github::before {
+  display: block;
+  width: 2em;
+  height: 2em;
+  content: '';
+  position: absolute;
+  top: -0.5em;
+  left: -2.5em;
+  background-image: url('./img/octocat-white.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .App-grid {
   padding: 50px;
-  margin: 10px auto;
   display: grid;
+  grid-area: body;
+}
+
+.App-footer {
+  height: 60px;
+  font-size: 0.75em;
+
+  grid-area: footer;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   justify-content: center;
+}
+
+.my-website {
+  font-weight: 600;
 }

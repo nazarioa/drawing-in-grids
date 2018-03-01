@@ -62,17 +62,24 @@ class App extends Component {
 
     const cells = [];
     for (let i = 0; i < (numberCellsVertically * numberCellsHorizontally); i++) {
-      cells.push(<Cell key={i} className="cell-{i}" style={cellStyle} />);
+      cells.push(<Cell key={i} style={cellStyle} />);
     }
 
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Draw!</h1>
+          <h1 className="header-title">Draw!</h1>
+          <div className="header-github"><a href="http://github.com/nazarioa/drawing-in-grids">View on Github</a></div>
         </header>
+
         <div className="App-grid" style={gridTemplateStyle}>
           {cells}
         </div>
+
+        <footer className="App-footer">
+          <div className="my-name">Nazario A. Ayala</div>
+          <div className="my-website"><a href="https://www.linkedin.com/in/nazarioa">Hire Me!</a></div>
+        </footer>
       </div>
     );
   }

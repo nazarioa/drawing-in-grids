@@ -7,3 +7,13 @@ body {
 div {
   box-sizing: border-box;
 }
+
+
+a {
+  color: #676767;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
