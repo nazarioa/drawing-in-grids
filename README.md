@@ -13,3 +13,5 @@ To play with it:
 1. Clone the repo
 2. from the command-line, cd into the cloned directory
 3. run `npm run draw`
+
+You can also just see it live [here](https://www.niztech.com/Client/drawing-in-grids/)
