@@ -5,9 +5,9 @@
   "homepage": "https://www.niztech.com/Client/drawing-in-grids/",
   "dependencies": {
     "classnames": "^2.2.x",
-    "react": "16.9.x",
-    "react-dom": "16.9.x",
-    "react-scripts": "^3.4.1"
+    "react": "^17.0.x",
+    "react-dom": "^17.0.x",
+    "react-scripts": "^4.0.x"
   },
   "scripts": {
     "start": "react-scripts start",
